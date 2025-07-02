@@ -7,11 +7,11 @@ import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 
 // Import routes
-import phoneRoutes from './routes/phoneRoutes.js';
-import userRoutes from './routes/userRoutes.js';
-import inventoryRoutes from './routes/inventoryRoutes.js';
-import salesRoutes from './routes/salesRoutes.js';
-import statsRoutes from './routes/statsRoutes.js';
+import phoneRoutes from './routes/Phoneroutes.js';
+import userRoutes from './routes/Userroutes.js';
+// import inventoryRoutes from './routes/inventoryRoutes.js';
+import salesRoutes from './routes/Salesroute.js';
+// import statsRoutes from './routes/statsRoutes.js';
 
 const app = express();
 
@@ -56,9 +56,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mobiworld
 // Routes
 app.use('/api/auth', userRoutes);
 app.use('/api/phones', phoneRoutes);
-app.use('/api/inventory', inventoryRoutes);
+// app.use('/api/inventory', inventoryRoutes);
 app.use('/api/sales', salesRoutes);
-app.use('/api/stats', statsRoutes);
+// app.use('/api/stats', statsRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

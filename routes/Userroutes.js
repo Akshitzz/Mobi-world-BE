@@ -1,9 +1,11 @@
-import router from 'express';
+import express from 'express';
 import jwt from 'jsonwebtoken';
 import User from '../Models/User.js';
 import auth from '../middleware/auth.js';
 import upload from '../middleware/upload.js';
 import { validateRegister, validateLogin } from '../middleware/validation.js';
+
+const router = express.Router();
 
 // Generate JWT token
 const generateToken = (userId) => {
