@@ -7,10 +7,10 @@ import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 
 // Import routes
-import phoneRoutes from './routes/Phoneroutes.js';
-import userRoutes from './routes/Userroutes.js';
+import phoneRoutes from './routes/phoneroutes.js';
+import userRoutes from './routes/userroutes.js';
 // import inventoryRoutes from './routes/inventoryRoutes.js';
-import salesRoutes from './routes/Salesroute.js';
+import salesRoutes from './routes/salesroute.js';
 // import statsRoutes from './routes/statsRoutes.js';
 
 const app = express();

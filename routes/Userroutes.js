@@ -1,6 +1,6 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import User from '../Models/User.js';
+import User from '../models/user.js';
 import auth from '../middleware/auth.js';
 import upload from '../middleware/upload.js';
 import { validateRegister, validateLogin } from '../middleware/validation.js';
@@ -272,7 +272,7 @@ router.get('/dashboard', auth, async (req, res) => {
     const stats = await user.getStats();
 
     // Get recent activities (last 10 phones added/sold)
-    const Phone = require('../Models/Phone.js');
+    const Phone = require('../models/phone.js');
     
     const recentPhones = await Phone.find({ userId: req.user.id })
       .sort({ createdAt: -1 })

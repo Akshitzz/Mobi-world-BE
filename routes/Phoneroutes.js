@@ -1,5 +1,5 @@
 import express from 'express';
-import Phone from '../Models/Phone.js';
+import Phone from '../models/phone.js';
 import auth from '../middleware/auth.js';
 import upload from '../middleware/upload.js';
 import { validatePhone, validateSale } from '../middleware/validation.js';
