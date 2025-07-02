@@ -1,5 +1,6 @@
 {
   "name": "mobiworld-backend",
+  "type": "module",
   "version": "1.0.0",
   "description": "Backend API for Mobiworld mobile phone inventory management",
   "main": "server.js",
@@ -34,6 +35,6 @@
     "nodejs",
     "api"
   ],
-  "author": "Your Name",
+  "author": "Akshit",
   "license": "MIT"
 }
