@@ -139,7 +139,6 @@ router.post('/', auth, upload.array('images', 5), validatePhone, async (req, res
       ...req.body,
       userId: req.user.id
     };
-
     // Add image information if files were uploaded
     if (req.files && req.files.length > 0) {
       phoneData.images = req.files.map(file => ({
@@ -195,6 +194,23 @@ router.put('/:id', auth, upload.array('images', 5), async (req, res) => {
         phone[key] = req.body[key];
       }
     });
+
+    // Handle optional sale fields
+    const { salePrice, customerName, customerMobile, customerAddress, saleDate } = req.body;
+    if (salePrice !== undefined) {
+      phone.salePrice = salePrice;
+    }
+    if (customerName || customerMobile || customerAddress) {
+      phone.soldTo = {
+        ...phone.soldTo,
+        ...(customerName && { customerName }),
+        ...(customerMobile && { customerMobile }),
+        ...(customerAddress && { customerAddress })
+      };
+    }
+    if (saleDate !== undefined) {
+      phone.soldDate = saleDate ? new Date(saleDate) : new Date();
+    }
 
     // Add new images if uploaded
     if (req.files && req.files.length > 0) {
