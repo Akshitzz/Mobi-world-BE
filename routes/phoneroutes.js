@@ -161,7 +161,7 @@ router.post('/', auth, upload.array('images', 5), validatePhone, async (req, res
     if (error.code === 11000) {
       return res.status(400).json({
         success: false,
-        message: 'Phone with this IMEI already exists'
+        message: error.message
       });
     }
     
