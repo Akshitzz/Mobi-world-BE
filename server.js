@@ -4,8 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
-import rateLimit from 'express-rate-limit';
-import cors from 'cors';
+
 // Import routes
 import phoneRoutes from './routes/phoneroutes.js';
 import userRoutes from './routes/userroutes.js';
@@ -19,7 +18,6 @@ const app = express();
 app.use(helmet());
 app.use(compression());
 app.use(cors({
-  
 origin: [
   'http://localhost:5173',
 'https://localhost:3000',
